@@ -1,5 +1,6 @@
 package com.commerce.toy.member.controller;
 
+import com.commerce.toy.member.dto.MemberRegisterRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
 
     @PostMapping("/join")
-    public ResponseEntity<Void> memberRegister() {
+    public ResponseEntity<Void> memberRegister(
+            @RequestBody MemberRegisterRequest memberRegisterRequest) {
 
         return ResponseEntity.ok().build();
     }
