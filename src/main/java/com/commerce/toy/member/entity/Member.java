@@ -1,4 +1,4 @@
-package com.commerce.toy.member.controller;
+package com.commerce.toy.member.entity;
 
 import lombok.*;
 
