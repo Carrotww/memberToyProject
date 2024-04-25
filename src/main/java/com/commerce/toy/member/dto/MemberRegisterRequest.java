@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberRegisterRequest {
-    private String memberId;
+    private String memberLoginId;
     private String password;
     private String nickname;
     private String memberName;

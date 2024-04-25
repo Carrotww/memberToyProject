@@ -1,8 +1,11 @@
 package com.commerce.toy.member.controller;
 
+import com.commerce.toy.global.dto.ApiResponse;
 import com.commerce.toy.member.dto.MemberRegisterRequest;
+import com.commerce.toy.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +15,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/user")
 public class MemberController {
 
-    @PostMapping("/join")
-    public ResponseEntity<Void> memberRegister(
-            @RequestBody MemberRegisterRequest memberRegisterRequest) {
+    private final MemberService memberService;
 
-        return ResponseEntity.ok().build();
+    @PostMapping("/join")
+    public ResponseEntity<ApiResponse<Void>> memberRegister(
+            @RequestBody MemberRegisterRequest memberRegisterRequest) {
+        memberService.registerMember(memberRegisterRequest);
+
+        return ResponseEntity.ok().body(ApiResponse.success(null, HttpStatus.CREATED));
     }
 
     @GetMapping("/list")

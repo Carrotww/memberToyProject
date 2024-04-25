@@ -17,15 +17,10 @@ public class Member {
     private Long id;
 
     @Column(unique = true)
-    private String memberId;
-
+    private String memberLoginId;
     private String password;
-
     private String nickname;
-
     private String memberName;
-
     private String phoneNumber;
-
     private String email;
 }
