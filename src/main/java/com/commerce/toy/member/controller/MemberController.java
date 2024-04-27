@@ -51,9 +51,7 @@ public class MemberController {
     public ResponseEntity<ApiResponse<UpdateMemberResponse>> updateMember(
             @PathVariable("memberLoginId") String memberLoginId,
             @RequestBody UpdateMemberRequest updateMemberRequest) {
-        log.info("@@@@@");
         UpdateMemberResponse response = memberService.updateMemberByMemberLoginId(memberLoginId, updateMemberRequest);
-        log.info("@@@@@");
 
         return ResponseEntity.ok().body(ApiResponse.success(response, HttpStatus.OK));
     }
