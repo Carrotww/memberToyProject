@@ -11,12 +11,20 @@ public class ApiResponse<T> {
     private boolean success;
     private T data;
     private int statusCode;
+    private ErrorResponse error;
 
     public static <T> ApiResponse<T> success(T data, HttpStatus status) {
         return ApiResponse.<T>builder()
                 .success(true)
                 .data(data)
                 .statusCode(status.value())
+                .build();
+    }
+
+    public static ApiResponse<ErrorResponse> failure(ErrorResponse errorResponse) {
+        return ApiResponse.<ErrorResponse>builder()
+                .success(false)
+                .error(errorResponse)
                 .build();
     }
 }
