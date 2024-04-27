@@ -10,13 +10,13 @@ import org.springframework.http.HttpStatus;
 public class ApiResponse<T> {
     private boolean success;
     private T data;
-    private HttpStatus status;
+    private int statusCode;
 
     public static <T> ApiResponse<T> success(T data, HttpStatus status) {
         return ApiResponse.<T>builder()
                 .success(true)
                 .data(data)
-                .status(status)
+                .statusCode(status.value())
                 .build();
     }
 }
