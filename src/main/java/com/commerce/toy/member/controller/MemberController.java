@@ -5,18 +5,14 @@ import com.commerce.toy.member.dto.MemberRegisterRequest;
 import com.commerce.toy.member.dto.UpdateMemberRequest;
 import com.commerce.toy.member.dto.UpdateMemberResponse;
 import com.commerce.toy.member.entity.Member;
-import com.commerce.toy.member.repository.MemberRepository;
 import com.commerce.toy.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -25,7 +21,6 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
-    private final MemberRepository memberRepository;
 
     @PostMapping("/join")
     public ResponseEntity<ApiResponse<Void>> memberRegister(
