@@ -1,5 +1,7 @@
 package com.commerce.toy.member.service;
 
+import com.commerce.toy.global.error.ApplicationError;
+import com.commerce.toy.global.error.ApplicationException;
 import com.commerce.toy.member.dto.MemberRegisterRequest;
 import com.commerce.toy.member.dto.UpdateMemberRequest;
 import com.commerce.toy.member.dto.UpdateMemberResponse;
@@ -47,7 +49,7 @@ public class MemberService {
 
     public UpdateMemberResponse updateMemberByMemberLoginId(String memberLoginId, UpdateMemberRequest updateMemberRequest) {
         Member member = memberRepository.findByMemberLoginId(memberLoginId)
-                .orElseThrow(() -> new NoSuchElementException("사용자 아이디를 찾을 수 없습니다."));
+                .orElseThrow(() -> new ApplicationException(ApplicationError.MEMBER_LOGIN_ID_NOT_FOUND));
         if (updateMemberRequest.getPassword() != null) {
             member.updatePassword(encodingPassword(updateMemberRequest.getPassword()));
         }
