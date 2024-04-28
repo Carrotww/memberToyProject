@@ -47,3 +47,6 @@ java -jar build/libs/toy-0.0.1-SNAPSHOT-plain.jar1-SNAPSHOT.jar
 2. basemodel entity
   - createdAt : 생성 시간
   - lastModifiedAt : 수정 시간
+
+# 모의 데이터 추가
+- /src/main/resources/data.sql 경로에 h2 데이터베이스용 모의 user 객체 추가
